@@ -54,7 +54,7 @@ except request.exceptions.RequestException as error:
 #### Q1
 I think in LIKE `'%...%'` the vulnerability was always there as user could change SQL query directly, so speed comes second. To fight with performance issue I would use pgvector [source](https://pganalyze.com/blog/postgresql-vs-sql-server-btree-index-deduplication#:~:text=PostgreSQL,-doesn%E2%80%99t)
 #### Q2
-The more documents you have the bigger prompt will be. It is bad because you can exceed LLM's context limit. Basic RAG splits documents into chunks, creates embeddings for those chunks, retrieves the top-k most relevant chunks for the question, and sends only those chunks to the LLM. So it will lower cost of prompt. [source] (https://www.ibm.com/think/topics/retrieval-augmented-generation#:~:text=What%20are%20the%20benefits%20of%20RAG%3F)
+The more documents you have the bigger prompt will be. It is bad because you can exceed LLM's context limit. Basic RAG splits documents into chunks, creates embeddings for those chunks, retrieves the top-k most relevant chunks for the question, and sends only those chunks to the LLM. So it will lower cost of prompt. [source](https://www.ibm.com/think/topics/retrieval-augmented-generation#:~:text=What%20are%20the%20benefits%20of%20RAG%3F)
 #### Q3
 1) API request can time out;
 2) API request can return HTTP error;
