@@ -1,6 +1,6 @@
 ## Part 1
-*Some messages match more than one rule (e.g. "Can you send me the scholarship
-document?"). Pick how to resolve conflicts and explain your choice in 1 sentence.*
+"*Some messages match more than one rule (e.g. "Can you send me the scholarship
+document?"). Pick how to resolve conflicts and explain your choice in 1 sentence.*"
 
 If message contains more than one category, then it will display a category whose keyword appears first in the message. 
 
