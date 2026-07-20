@@ -31,7 +31,7 @@ conn.execute(
     (question, answer)
 )
 ```
-No error handling for bad API calls in `ask_llm(question, docs)` method. I think it's a good practice to use at least connection, timeout and HTTP error handling.
+No error handling for bad API calls in `ask_llm(question, docs)` method. I think it's a good practice to use at least connection, timeout and HTTP error handling. [source] (https://medium.com/@PythonWithPurpose/python-api-error-handling-handle-errors-like-a-pro-a0da2899bf71)
 #### Solution
 
 ```python
@@ -49,3 +49,18 @@ except request.exceptions.RequestException as error:
   print(f"API request failed: {error}")
   return 13 # I usually return 13 because then I know there is something wrong. Preference
 ```
+
+## Part 3
+#### Q1
+I think in LIKE `'%...%'` the vulnerability was always there as user could change SQL query directly, so speed comes second. To fight with performance issue I would use pgvector [source] (https://pganalyze.com/blog/postgresql-vs-sql-server-btree-index-deduplication#:~:text=PostgreSQL,-doesn%E2%80%99t)
+#### Q2
+The more documents you have the bigger prompt will be. It is bad because you can exceed LLM's context limit. Basic RAG splits documents into chunks, creates embeddings for those chunks, retrieves the top-k most relevant chunks for the question, and sends only those chunks to the LLM. So it will lower cost of prompt. [source] (https://www.ibm.com/think/topics/retrieval-augmented-generation#:~:text=What%20are%20the%20benefits%20of%20RAG%3F)
+#### Q3
+1) API request can time out;
+2) API request can return HTTP error;
+3) API request can return invalid response.
+In production I would use Try-Except to safely handle the errors.
+#### Q4
+<img width="689" height="356" alt="image" src="https://github.com/user-attachments/assets/ecf08dbb-9f8d-40d5-a4c3-5feb49734a0e" />
+Multiple messages will belong to oneconversation
+
