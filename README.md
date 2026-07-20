@@ -62,5 +62,6 @@ The more documents you have the bigger prompt will be. It is bad because you can
 In production I would use Try-Except to safely handle the errors.
 #### Q4
 <img width="689" height="356" alt="image" src="https://github.com/user-attachments/assets/ecf08dbb-9f8d-40d5-a4c3-5feb49734a0e" />
+
 Multiple messages will belong to oneconversation
 
